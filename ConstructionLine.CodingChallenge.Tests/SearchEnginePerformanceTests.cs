@@ -15,17 +15,13 @@ namespace ConstructionLine.CodingChallenge.Tests
         [SetUp]
         public void Setup()
         {
-            
             var dataBuilder = new SampleDataBuilder(50000);
-
             _shirts = dataBuilder.CreateShirts();
-
             _searchEngine = new SearchEngine(_shirts);
         }
-
-
+                
         [Test]
-        public void PerformanceTest()
+        public void PerformanceTest50000Shirts()
         {
             var sw = new Stopwatch();
             sw.Start();
@@ -42,6 +38,7 @@ namespace ConstructionLine.CodingChallenge.Tests
             Console.WriteLine($"Test fixture finished in {sw.ElapsedMilliseconds} milliseconds");
 
             AssertResults(results.Shirts, options);
+            AssertValidSearchOptions(options);
             AssertSizeCounts(_shirts, options, results.SizeCounts);
             AssertColorCounts(_shirts, options, results.ColorCounts);
         }
