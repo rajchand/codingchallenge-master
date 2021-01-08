@@ -33,7 +33,7 @@ namespace ConstructionLine.CodingChallenge
         public SearchResults Search(SearchOptions options)
         {
             // TODO: search logic goes here.                                                      
-            List<Shirt> searchShirts = new List<Shirt>();
+            var searchShirts = new List<Shirt>();
 
             foreach (var variation in _shirtCount.Where(x => 
             options.Colors.Contains(x.Item1) && options.Sizes.Contains(x.Item2)))
